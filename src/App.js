@@ -8,16 +8,17 @@ import { useState } from 'react';
 
 function App() {
   const [Progress,setprogress] = useState(0);
-  const [country,setcountry] = useState(localStorage.getItem("Country") == null? "in": localStorage.getItem("Country"));
+  const [country,setcountry] = useState(localStorage.getItem("CountryCode") == null? "in": localStorage.getItem("CountryCode"));
   const [mode,setmode] = useState(localStorage.getItem("M") == null? "light": localStorage.getItem("M"))
 
   const SetProgress = (ProgressVal) => {
     setprogress(ProgressVal);
   }
 
-  const ChangeCountry = (countryName) => {
-    localStorage.setItem("Country",countryName);
-    setcountry(countryName);
+  const ChangeCountry = (countryCode,CountryName) => {
+    localStorage.setItem("CountryCode",countryCode);
+    localStorage.setItem("CountryName",CountryName);
+    setcountry(countryCode);
   }
 
   const ModeChange = () => {

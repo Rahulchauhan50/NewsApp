@@ -32,21 +32,21 @@ export default function News(props) {
               </li>
               <li className="nav-item dropdown">
                 <a className="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Countries
+                  {localStorage.getItem("M") == null? "India": localStorage.getItem("CountryName")}
                 </a>
                 <ul style={{backgroundColor:"#00173a",color:"white"}} className="dropdown-menu">
-                  <li onClick={()=>{CountryName("in")}} ><a className="dropdown-item btn text-secondary">India</a></li>
-                  <li onClick={()=>{CountryName("au")}} ><a className="dropdown-item btn text-secondary">Australia</a></li>
-                  <li onClick={()=>{CountryName("br")}} ><a className="dropdown-item btn text-secondary">Brazil</a></li>
-                  <li onClick={()=>{CountryName("ca")}} ><a className="dropdown-item btn text-secondary">Canada</a></li>
-                  <li onClick={()=>{CountryName("cn")}} ><a className="dropdown-item btn text-secondary">China</a></li>
-                  <li onClick={()=>{CountryName("eg")}} ><a className="dropdown-item btn text-secondary">Egypt</a></li>
-                  <li onClick={()=>{CountryName("fr")}} ><a className="dropdown-item btn text-secondary">France</a></li>
-                  <li onClick={()=>{CountryName("Hk")}} ><a className="dropdown-item btn text-secondary">Hong Kong</a></li>
-                  <li onClick={()=>{CountryName("jp")}} ><a className="dropdown-item btn text-secondary">Japan</a></li>
-                  <li onClick={()=>{CountryName("ru")}} ><a className="dropdown-item btn text-secondary">Russia</a></li>
-                  <li onClick={()=>{CountryName("za")}} ><a className="dropdown-item btn text-secondary">South Africa</a></li>
-                  <li onClick={()=>{CountryName("us")}} ><a className="dropdown-item btn text-secondary">United States</a></li>
+                  <li onClick={()=>{CountryName("in","India")}} ><a href='/' className="dropdown-item btn text-secondary">India</a></li>
+                  <li onClick={()=>{CountryName("au","Australia")}} ><a href='/' className="dropdown-item btn text-secondary">Australia</a></li>
+                  <li onClick={()=>{CountryName("br","Brazil")}} ><a href='/' className="dropdown-item btn text-secondary">Brazil</a></li>
+                  <li onClick={()=>{CountryName("ca","Canada")}} ><a href='/' className="dropdown-item btn text-secondary">Canada</a></li>
+                  <li onClick={()=>{CountryName("cn","China")}} ><a href='/' className="dropdown-item btn text-secondary">China</a></li>
+                  <li onClick={()=>{CountryName("eg","Egypt")}} ><a href='/' className="dropdown-item btn text-secondary">Egypt</a></li>
+                  <li onClick={()=>{CountryName("fr","France")}} ><a href='/' className="dropdown-item btn text-secondary">France</a></li>
+                  <li onClick={()=>{CountryName("Hk","Hong Kong")}} ><a href='/' className="dropdown-item btn text-secondary">Hong Kong</a></li>
+                  <li onClick={()=>{CountryName("jp","Japan")}} ><a href='/' className="dropdown-item btn text-secondary">Japan</a></li>
+                  <li onClick={()=>{CountryName("ru","Russia")}} ><a href='/' className="dropdown-item btn text-secondary">Russia</a></li>
+                  <li onClick={()=>{CountryName("za","South Africa")}} ><a href='/' className="dropdown-item btn text-secondary">South Africa</a></li>
+                  <li onClick={()=>{CountryName("us","United States")}} ><a href='/' className="dropdown-item btn text-secondary">United States</a></li>
                 </ul>
               </li>
               <li className="nav-item">
