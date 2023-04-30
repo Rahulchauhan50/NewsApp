@@ -13,16 +13,15 @@ export default function News(props) {
   const [totalresults,settotalresults] = useState(0);
   const [errresults,seterrresults] = useState(null);
 
-
   const fetchMoreData = async () => {
-    await fetch(`https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=edf044233c70432db4bf835a12be7bad&pageSize=6&page=${page+1}`)
+    await fetch(`https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=1e0a9b492d664dd1b3751ee483316063&pageSize=6&page=${page+1}`)
     .then((data)=>{
       if(data.status===426){
         return  {"status": "ok",
         "totalResults": articles.length,
         "articles": [{}]}
       }
-        return data.json()
+        return data.json();
     })
     .then((respone)=>{
         setarticles(articles.concat(respone.articles))
@@ -40,9 +39,8 @@ export default function News(props) {
 
   const update = async () => {
     progress(10)
-    await fetch(`https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=edf044233c70432db4bf835a12be7bad&pageSize=6&page=${page}`)
+    await fetch(`https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=1e0a9b492d664dd1b3751ee483316063&pageSize=6&page=${page}`)
     .then((data)=>{
-      console.log(data)
       if(data.status===426 || data.status===429){
         seterrresults("Sorry, These below news are old !! \n Because API are not responding \n But you can also read these News")
         if(data.status===429){
@@ -338,28 +336,28 @@ export default function News(props) {
     })
     progress(100)
 }
+
   return (
     <>
-    
     <InfiniteScroll
           dataLength={articles.length}
           next={fetchMoreData}
           hasMore={totalresults >= articles.length && totalresults !== articles.length}
-          loader={<Spinner/>}
-        >
-    <div className="container">
-    <div className="container mt-5">
-      <div style={{height:"15px"}} className="mt-5"></div>
-      <h3 className={`text-${mode==="dark"?"light":"dark"} mt-5`}>{errresults==null?"Breaking News at Your Fingertips: Download the QuickNews App and Stay Informed Anytime, Anywhere":errresults}</h3>
+          loader={<Spinner/>}>
+
+      <div className="container">
+        <div className="container mt-5">
+            <div style={{height:"15px"}} className="mt-5"></div>
+            <h3 className={`text-${mode==="dark"?"light":"dark"} mt-5`} >{errresults==null?"Breaking News at Your Fingertips: Download the QuickNews App and Stay Informed Anytime, Anywhere":errresults}</h3>
+            </div>
+              <div className='row'>
+              {articles.map(Elements=>{
+                return <div className={`my-3 col-md-4`} key={Elements.url}>
+                        <Newsitems source={Elements.source.name} author={Elements.author} time={Elements.publishedAt} mode={mode} title={Elements.title} despription={Elements.description} imageurl={Elements.urlToImage} newurl={Elements.url}/>
+                      </div>
+          })}
+          </div>
       </div>
-      <div className='row'>
-      {articles.map(Elements=>{
-        return <div className={`my-3 col-md-4`} key={Elements.url}>
-                <Newsitems source={Elements.source.name} author={Elements.author} time={Elements.publishedAt} mode={mode} title={Elements.title} despription={Elements.description} imageurl={Elements.urlToImage} newurl={Elements.url}/>
-      </div>
-      })}
-      </div>
-    </div>
     </InfiniteScroll>
     
   </>
