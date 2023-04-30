@@ -74,11 +74,7 @@ export default function News(props) {
         <li onClick={top} className="btn btn-success my-1 mx-1 py-0 "><Link style={{textDecoration:"none", color:"white"}} to="/technology" >technology</Link></li>
   </ul>  
   </div>
-      <div className="container mt-5">
-      <div style={{height:"15px"}} className="mt-5"></div>
-      <h3 className={`text-${mode==="dark"?"light":"dark"} mt-5`}>Breaking News at Your Fingertips: Download the QuickNews App and Stay Informed Anytime, Anywhere</h3>
-      
-      </div>
+     
           </>
   )
 }

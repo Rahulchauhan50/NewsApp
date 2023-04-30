@@ -3,8 +3,8 @@ import React from 'react'
 export default function Newsitems(props) {
     let {mode, title, despription, newurl, imageurl, time, author, source} = props;
   return (
-    <div className={`card mx-auto bg-${mode} text-${mode==="dark"?"light":"dark"}`} style={{width: "20rem", height: "100%"}}>
-          <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+    <div className={`card mx-auto bg-${mode} text-${mode==="dark"?"light":"dark"}`} style={{height: "100%"}}>
+          <span className="position-absolute top-0 translate-middle badge rounded-pill bg-danger" style={{left:'90%',zIndex:'1'}}>
           {source}
           <span className="visually-hidden">unread messages</span>
         </span>
